@@ -42,7 +42,6 @@ dependencies:
   package_info_plus: ^5.0.0
   particle_field: ^1.0.0
   path_provider: ^2.1.1
-  pointer_interceptor: ^0.9.3+6
   provider: ^6.0.5
   rnd: ^0.2.0
   shared_preferences: ^2.0.17
