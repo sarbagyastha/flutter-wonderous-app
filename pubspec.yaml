@@ -34,12 +34,12 @@ dependencies:
   home_widget: ^0.4.1 # use the forked version when on `main` flutter branch
 #    git:
 #      url: https://github.com/gskinnerTeam/flutter_home_widget_fork.git
-  http: ^1.1.0
+  http: ^1.2.1
   image: ^4.1.3
   image_fade: ^0.6.2
   intl: ^0.18.1
   internet_connection_checker: ^1.0.0+1
-  package_info_plus: ^5.0.0
+  package_info_plus: ^7.0.0
   particle_field: ^1.0.0
   path_provider: ^2.1.1
   provider: ^6.0.5
@@ -49,8 +49,8 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   unsplash_client: ^2.1.0+3
   url_launcher: ^6.1.14
-  webview_flutter: ^4.0.2
-  youtube_player_iframe: ^4.0.4
+  webview_flutter: ^4.7.0
+  youtube_player_iframe: ^5.1.2
 
 dev_dependencies:
   icons_launcher: ^2.1.3
