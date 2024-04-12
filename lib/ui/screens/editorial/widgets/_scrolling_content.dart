@@ -111,7 +111,10 @@ class _ScrollingContent extends StatelessWidget {
                     Center(child: buildHiddenCollectible(slot: 2)),
                   ]),
                   Gap($styles.insets.md),
-                  _YouTubeThumbnail(id: data.videoId, caption: data.videoCaption),
+                  _YouTubeThumbnail(
+                    id: data.videoId,
+                    caption: data.videoCaption,
+                  ),
                   Gap($styles.insets.md),
                   ..._contentSection([
                     /// Callout2
@@ -173,37 +176,50 @@ class _YouTubeThumbnail extends StatelessWidget {
     void handlePressed() => context.go(ScreenPaths.video(id));
 
     return MergeSemantics(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 400),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
         child: Column(
           children: [
             AppBtn.basic(
               semanticLabel: $strings.scrollingContentSemanticYoutube,
               onPressed: handlePressed,
-              child: Stack(children: [
-                AppImage(image: NetworkImage(imageUrl), fit: BoxFit.cover, scale: 1.0),
-                Positioned.fill(
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.all($styles.insets.xs),
-                      decoration: BoxDecoration(
-                        color: $styles.colors.black.withOpacity(0.66),
-                        borderRadius: BorderRadius.circular(999),
-                      ),
-                      child: Icon(
-                        Icons.play_arrow,
-                        color: $styles.colors.white,
-                        size: $styles.insets.xl,
+              child: Stack(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 1.78, // 16:9
+                    child: AppImage(
+                      image: NetworkImage(imageUrl),
+                      fit: BoxFit.fitWidth,
+                      scale: 1.0,
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.all($styles.insets.xs),
+                        decoration: BoxDecoration(
+                          color: $styles.colors.black.withOpacity(0.66),
+                          borderRadius: BorderRadius.circular(999),
+                        ),
+                        child: Icon(
+                          Icons.play_arrow,
+                          color: $styles.colors.white,
+                          size: $styles.insets.xl,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ]),
+                ],
+              ),
             ),
             Gap($styles.insets.xs),
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
-                child: Text(caption, style: $styles.text.caption)),
+              padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
+              child: Text(
+                caption,
+                style: $styles.text.caption,
+              ),
+            ),
           ],
         ),
       ),
